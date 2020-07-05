@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if type == 1%}
+        <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg">
+                <strong style="font-size:20px;">Import CSV Data for Person Database</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mt-3">
+                <p style="color:red;font-size:20px;">
+                        <strong style="color:black">Note : </strong>Import only csv file.
+                </p>
+            </div>
+        </div>
+        </div>
+        <div class="container mt-3">
+            <div class="row">
+                 <form action=""method="post" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="col">
+                        <input type="file" name="file" value="SELECT THE CSV" class="btn btn-primary"><br>
+                    </div>
+                    <div class="col mt-3">
+                        <input type="submit" value="UPLOAD" class="btn btn-success">
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% elif type == 3%}
+         <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg">
+                <strong style="font-size:20px;">Import CSV Data for Rent Database</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mt-3">
+                <p style="color:red;font-size:20px;">
+                        <strong style="color:black">Note : </strong>Import only csv file.
+                </p>
+            </div>
+        </div>
+         </div>
+        <div class="container mt-3">
+            <div class="row">
+                 <form action=""method="post" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="col">
+                        <input type="file" name="file" value="SELECT THE CSV" class="btn btn-primary" disabled="true"><br>
+                    </div>
+                    <div class="col mt-3">
+                        <input type="submit" value="UPLOAD" class="btn btn-success" disabled="true">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container mt-2">
+            <div class="row">
+                <div class="col" style="color:red;font-size:25px;">
+                    <center><strong>Person Database  is empty </strong></center>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg">
+                <strong style="font-size:20px;">Import CSV Data for Rent Database</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mt-3">
+                <p style="color:red;font-size:20px;">
+                        <strong style="color:black">Note : </strong>Import only csv file.
+                </p>
+            </div>
+        </div>
+         </div>
+        <div class="container mt-3">
+            <div class="row">
+                 <form action=""method="post" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="col">
+                        <input type="file" name="file" value="SELECT THE CSV" class="btn btn-primary"><br>
+                    </div>
+                    <div class="col mt-3">
+                        <input type="submit" value="UPLOAD" class="btn btn-success">
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+
+
+{% endblock %}

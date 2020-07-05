@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+<!--{% load static %}-->
+{% block content %}
+    <style>
+        .my-custom-scrollbar {
+            position: relative;
+            height: 280px;
+            overflow: auto;
+            }
+        .table-wrapper-scroll-y {
+            display: block;
+        }
+    </style>
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-lg-3">
+                <strong style="font-size:25px;">{{ day }}/{{ month }}/{{ year }}</strong>
+            </div>
+            <div class="col-lg-6">
+
+            </div>
+            <div class="col-lg-3">
+                <h5>Total Rooms Rented <span class="badge badge-secondary">{{ count_of_rooms }}</span></h5>
+                <h5>Total Rooms Left <span class="badge badge-secondary">{{ total_rooms_left }}</span></h5>
+            </div>
+        </div>
+    </div>
+    {% if total_rooms_left == 30 %}
+       <div class="container mt-5"><div class="row"><div class="col-lg"> <center><strong>THERE ARE NO PEOPLE CURENNTLY RENTING THE ROOMS</strong></center></div></div></div>
+    {% else %}
+        <center><strong>People currently Renting</strong></center>
+        <div class="container mt-2">
+            <div class="row">
+                <div class="col-lg">
+                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                         <table class="table table-bordered table-striped mb-0">
+                                    <thead>
+                                      <tr>
+                                          <th>ID</th>
+                                          <th>Name</th>
+                                          <th>Room Number</th>
+                                          <th>Advance Money</th>
+                                          <th>Rent Money</th>
+                                          <th>Date Rented</th>
+                                          <th style="text-align:center;" colspan="2">Action</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for person in person_list %}
+                                        <tr>
+                                            <th scope="row"><a style="text-decoration:none" href="personInfo/{{ person.id }}">{{ person.id }}</a></th>
+                                            <td>{{ person.first_name }} {{ person.last_name }}</td>
+                                            <td>{{ person.room_no }}</td>
+                                            <td>Rs/ {{ person.advance_Ammount }}</td>
+                                            <td>Rs/ {{ person.rent_Ammount }}</td>
+                                            <td>{{ person.date }}</td>
+                                            <td><a href="modify/{{ person.id }}" class="btn btn-secondary">Modify</a> </td>
+                                            <td><a href="deleteAction/{{ person.id }}" class="btn btn-danger">Delete</a> </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                  </table>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-1">
+                <div class="row">
+                    <div class="col-lg">
+                            <img height="350px" width="500px" src="{% static "images/graph.png" %}" alt="My image">
+                    </div>
+                </div>
+        </div>
+    {% endif %}
+{% endblock %}

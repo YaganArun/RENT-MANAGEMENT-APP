@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg">
+                 <center><strong style="font-size:30px;">Export Your Data Here</strong></center>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg">
+                <strong style="font-size:20px;">PERSON SECTION</strong>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-4">
+                <a href="exportPersonC" class="btn btn-success">EXPORT CURRENT MONTH DATA</a>
+            </div>
+            <div class="col-lg-4">
+                <a href="exportPersonA" class="btn btn-success">EXPORT ALL DATA</a>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg">
+                <strong style="font-size:20px;">RENT SECTION</strong>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-4">
+                <a href="exportRentC" class="btn btn-success">EXPORT CURRENT MONTH DATA</a>
+            </div>
+            <div class="col-lg-4">
+                <a href="exportRentA" class="btn btn-success">EXPORT ALL DATA</a>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row mt-3">
+            <div class="col">
+                <p style="font-size:20px;color:red">
+                    <strong style="color:black">Note</strong> : Remember if you export current month person details , it exports only the person details of the current month,
+                    i.e new person recorded for that month will be only exported and not the whole.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

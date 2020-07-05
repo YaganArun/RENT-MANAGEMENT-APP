@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg">
+                 <center><strong style="font-size:30px;">Configure Your Database Here</strong></center>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg">
+                <strong style="font-size:20px;">PERSON DATABASE</strong>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-4">
+                <a href="dbConfig/importPerson" class="btn btn-success">IMPORT DATABASE</a>
+            </div>
+            <div class="col-lg-4">
+                <a href="dbConfig/wipePerson" class="btn btn-success">WIPE OUT DATABASE</a>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg">
+                <strong style="font-size:20px;">RENT DATABASE</strong>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-4">
+                <a href="dbConfig/importRent" class="btn btn-success">IMPORT DATABASE</a>
+            </div>
+            <div class="col-lg-4">
+                <a href="dbConfig/wipeRent" class="btn btn-success">WIPE OUT DATABASE</a>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg">
+                <strong style="font-size:20px;">INTERNAL DATABASE</strong>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-4">
+                <a href="dbConfig/resetInternal" class="btn btn-success">RESET DATABASE</a>
+            </div>
+            <div class="col-lg-6">
+                <p style="color:red;font-size:20px;">
+                   Remember to reset the Internal Database every year.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3"></div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg">
+                <p style="color:red;font-size:20px;">
+                    <strong style="color:black">Note : </strong>Be catious while configuring your database.Remember to export all the details
+                    before wiping out.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

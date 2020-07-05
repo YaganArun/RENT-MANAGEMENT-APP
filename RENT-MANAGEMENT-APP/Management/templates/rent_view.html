@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        .my-custom-scrollbar {
+            position: relative;
+            height: 500px;
+            overflow: auto;
+            }
+        .table-wrapper-scroll-y {
+            display: block;
+        }
+    </style>
+<div class="container mt-2">
+        <div class="row">
+            <div class="col-lg-3">
+                <strong style="font-size:25px;">Month : {{ month }}</strong>
+            </div>
+            <div class="col-lg-7"></div>
+            <div class="col-lg"><center><strong>Your Income Rs.{{ currentIncome }} / Rs.{{ totalIncome }}</strong></center></div>
+        </div>
+    </div>
+    {% if len == 0 %}
+        <center><strong>NO RENT DETAILS AVAILABLEs</strong></center>
+    {% else %}
+        <center><strong>Rent Details</strong></center>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg">
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                      <table class="table table-bordered table-striped mb-0">
+                        <thead>
+                          <tr>
+                              <th>ID</th>
+                              <th>Name</th>
+                              <th>Room Number</th>
+                              <th>Rent Money</th>
+                              <TH>Rent</TH>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for person in person_list %}
+                                        <tr>
+                                            <th scope="row">{{ person.id }}</th>
+                                            <td>{{ person.first_name }} {{ person.last_name }}
+                                            <td>{{ person.room_no }}</td>
+                                            <td>Rs/ {{ person.rent_Ammount }}</td>
+                                                {% if person.id not in notPaid %}
+                                                    <td><a style="text-decoration:none;color:green;" href="details/{{ person.id }}">PAID</a></td>
+                                                {% else %}
+                                                    <td><a style="color:red;text-decoration:none;" href="payRent/{{ person.id }}">NOT PAID</a></td>
+                                                {% endif %}
+                                        </tr>
+                                    {% endfor %}
+                        </tbody>
+                      </table>
+                     </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <style>
+             input[type=text], input[type=number] {
+              width: 45%; /* Full width */
+              padding: 3px; /* Some padding */
+              border: 1px solid #ccc; /* Gray border */
+              border-radius: 4px; /* Rounded borders */
+              box-sizing: border-box; /* Make sure that padding and width stays in place */
+              margin-top: 5px; /* Add a top margin */
+              margin-bottom: 5px; /* Bottom margin */
+              resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+            }
+
+            /* Style the submit button with a specific background color etc */
+    </style>
+    {% if action != 1%}
+        <div class="container mt-3">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg">
+                <form method="post">{% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="container mt-1">
+                        <div class="row">
+                            <div class="col">
+                                <input type="submit" value="submit" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% elif action == 2%}
+        <div class="container mt-3">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg">
+                <form method="post">{% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="container mt-1">
+                        <div class="row">
+                            <div class="col">
+                                <input type="submit" value="submit" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% else %}
+         <div class="container mt-3">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg">
+                <form method="post">{% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="container mt-1">
+                        <div class="row">
+                            <div class="col">
+                                <input type="submit" value="submit" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

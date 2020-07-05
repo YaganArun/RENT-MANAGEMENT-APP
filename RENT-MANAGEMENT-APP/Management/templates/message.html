@@ -1,0 +1,42 @@
+{%  extends 'base.html' %}
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg">
+                {% if action == 0%}
+                    <center><strong>{{ name }} has been removed from the database</strong></center>
+                {% elif action == 1%}
+                     <center><strong>{{ name }} Has Paid The Rent Successfully</strong></center>
+                {% elif action == 2 %}
+                     <center><strong> Successfully Modified Rent Details of {{ name }}</strong></center>
+                {% elif action == 3 %}
+                    <center><strong>Deleted Rent paid by {{ name }}</strong></center>
+                {% elif action == 4 %}
+                    <center><strong>Imported Person CSV file Successfuly</strong></center>
+                {% elif action == 5 %}
+                    <center><strong>Imported Rent CSV file Successfuly</strong></center>
+                {% elif action == 6 %}
+                    <center><strong>Person Database has been wiped Successfully</strong></center>
+                {% elif action == 7 %}
+                    <center><strong>Rent Database has been wiped Successfuly</strong></center>
+                {% elif action == 8 %}
+                    <center><strong>Internall Database has been Reset Successfuly</strong></center>
+                {% elif action == 9 %}
+                    <center><strong>Rent has been paid Successfully by {{ name }}</strong></center>
+                  {% elif action == 10 %}
+                    <center><strong>Rent has been Modified Successfully for {{ name }}</strong></center>
+                {% elif action == 11 %}
+                    <center><strong>Rent has been Deleted Successfully for {{ name }}</strong></center>
+                {% elif action == 12 %}
+                    <center><strong>Person has been added to database successfully</strong></center>
+                {% elif action == 13 %}
+                    <center><strong style="color:red;font-size:30px">Ops, it looks like you have uploaded person CSV file for rent details</strong></center>
+                {% elif action == 14 %}
+                    <center><strong style="color:red;font-size:30px">Ops, it looks like you have uploaded rent CSV file for person details</strong></center>
+                {% else %}
+                    <center><strong>Successfully {{ type }} {{ name }}</strong></center>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

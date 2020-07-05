@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        .infoTabel{
+             height: 50px;
+        }
+        .my-custom-scrollbar {
+            position: relative;
+            height: 500px;
+            overflow: auto;
+            }
+        .table-wrapper-scroll-y {
+            display: block;
+        }
+    </style>
+     <div class="container mt-2">
+            <div class="row">
+                <div class="col-lg">
+                         <table class="table table-bordered table-striped mb-0 infoTabel">
+                                    <thead>
+                                      <tr>
+                                          <th>ID</th>
+                                          <th>Name</th>
+                                          <th>Age</th>
+                                          <th>Designation</th>
+                                          <th>Advance Money</th>
+                                          <th>Contact Number</th>
+                                          <th style="text-align:center">Action</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <th scope="row">{{ person.id }}</th>
+                                                <td>{{ person.first_name }} {{ person.last_name }}</td>
+                                                 <td>{{ person.age }}</td>
+                                                <td>{{ person.designation }}</td>
+                                                <td>Rs/ {{ person.advance_Ammount }}</td>
+                                                <td>{{ person.contact_no }}</td>
+                                                <td><a href="oldRentForm/{{ person.id }}" class="btn btn-primary">Add old Rent</a></td>
+                                            </tr>
+                                    </tbody>
+                                  </table>
+                     </div>
+                </div>
+            </div>
+     </div>
+
+    {% if len == 0 %}
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-lg">
+                    <center><strong>This person has no rent history </strong></center>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="container mt-3">
+           <div class="row">
+               <div class="col-lg">
+                    <center><strong style="color:orange">Rent history of {{ person.first_name }} {{ person.last_name }}</strong></center>
+               </div>
+           </div>
+        </div>
+        <div class="container mt-2">
+        <div class="row">
+            <div class="col-lg">
+                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                    <table class="table table-bordered table-striped mb-0">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Rent</th>
+                                <th>Electric Bill</th>
+                                <th>Maintanace Charge</th>
+                                <th style="text-align:center;" colspan="2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for Rent in rentInfoList %}
+                            <tr>
+                                <th scope="row">{{ Rent.paymentDate }}</th>
+                                <td>{{ Rent.rent }}</td>
+                                <td>{{ Rent.electric_bill}}</td>
+                                <td>{{ Rent.Maintanace_charge }}</td>
+                                <td><a href="{{  person.id }}/{{Rent.paymentDate.year}}-{{Rent.paymentDate.month}}-{{Rent.paymentDate.day}}" class="btn btn-secondary">Modify Rent</a></td>
+                                <td><a href="oldRentFormDelete/{{ person.id }}/{{Rent.paymentDate.year}}-{{Rent.paymentDate.month}}-{{Rent.paymentDate.day}}" class="btn btn-danger">Delete Rent</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                 </div>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+
+{% endblock %}
